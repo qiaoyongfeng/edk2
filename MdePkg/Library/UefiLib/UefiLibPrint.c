@@ -69,7 +69,7 @@ InternalPrint (
 
   Return = UnicodeVSPrint (Buffer, BufferSize, Format, Marker);
 
-  if ((Console != NULL) && (Return > 0)) {
+  if ((Console == NULL) && (Return > 0)) {
     //
     // To be extra safe make sure Console has been initialized
     //
@@ -155,7 +155,7 @@ ErrorPrint (
 
   VA_START (Marker, Format);
 
-  Return = AsciiInternalPrint (Format, gST->ConOut, Marker);
+  Return = InternalPrint (Format, gST->ConOut, Marker);
 
   VA_END (Marker);
 
