@@ -155,7 +155,7 @@ ErrorPrint (
 
   VA_START (Marker, Format);
 
-  Return = InternalPrint (Format, gST->StdErr, Marker);
+  Return = AsciiInternalPrint (Format, gST->ConOut, Marker);
 
   VA_END (Marker);
 
